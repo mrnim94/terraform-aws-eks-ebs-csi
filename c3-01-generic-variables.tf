@@ -30,11 +30,11 @@ variable "business_divsion" {
 #   default = "dev/eks-cluster/terraform.tfstate"
 # }
 
-variable "eks_cluster_name" {
-  description = "EKS cluster name"
-  type = string
-  default = ""
-}
+# variable "eks_cluster_name" {
+#   description = "EKS cluster name"
+#   type = string
+#   default = ""
+# }
 
 variable "eks_cluster_id" {
   description = "EKS cluster ID/data.terraform_remote_state.eks.outputs.cluster_id"

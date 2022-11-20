@@ -7,5 +7,5 @@ locals {
     owners = local.owners
     environment = local.environment
   }
-  eks_cluster_name = var.eks_cluster_name
+  eks_cluster_name = var.eks_cluster_id
 } 
