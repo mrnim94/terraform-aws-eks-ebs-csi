@@ -30,6 +30,42 @@ variable "key_remote_state" {
   default = "dev/eks-cluster/terraform.tfstate"
 }
 
+variable "eks_cluster_name" {
+  description = "EKS cluster name"
+  type = string
+  default = ""
+}
+
+variable "eks_cluster_id" {
+  description = "EKS cluster ID/data.terraform_remote_state.eks.outputs.cluster_id"
+  type = string
+  default = ""
+}
+
+variable "aws_iam_openid_connect_provider_arn" {
+  description = "The ARN assigned by AWS for this provider/data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_arn"
+  type = string
+  default = ""
+}
+
+variable "aws_iam_openid_connect_provider_extract_from_arn" {
+  description = "data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn"
+  type = string
+  default = ""
+}
+
+variable "eks_cluster_endpoint" {
+  description = "The hostname (in form of URI) of Kubernetes master/data.terraform_remote_state.eks.outputs.cluster_endpoint"
+  type = string
+  default = ""
+}
+
+variable "eks_cluster_certificate_authority_data" {
+  description = "PEM-encoded root certificates bundle for TLS authentication./data.terraform_remote_state.eks.outputs.cluster_certificate_authority_data"
+  type = string
+  default = ""
+}
+
 
 
 
