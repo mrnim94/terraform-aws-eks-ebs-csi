@@ -28,7 +28,7 @@ terraform {
   # }     
 }
 
-Terraform AWS Provider Block
+#Terraform AWS Provider Block
 provider "aws" {
   region = var.aws_region
 }
