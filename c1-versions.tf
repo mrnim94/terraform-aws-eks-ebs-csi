@@ -33,7 +33,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-# Terraform HTTP Provider Block
-provider "http" {
-  # Configuration options
-}
+# # Terraform HTTP Provider Block
+# provider "http" {
+#   # Configuration options
+# }
