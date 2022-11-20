@@ -17,3 +17,19 @@ variable "business_divsion" {
   type = string
   default = "SAP"
 }
+
+variable "bucket_remote-state" {
+  description = "bucket name of eks cluster that saves the remote state"
+  type = string
+  default = "terraform-on-aws-eks-nim"
+}
+
+variable "key_remote_state" {
+  description = "The path to the state file inside the bucket"
+  type = string
+  default = "dev/eks-cluster/terraform.tfstate"
+}
+
+
+
+
