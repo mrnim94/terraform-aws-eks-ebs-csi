@@ -48,11 +48,11 @@ variable "aws_iam_openid_connect_provider_arn" {
   default = ""
 }
 
-variable "aws_iam_openid_connect_provider_extract_from_arn" {
-  description = "data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn"
-  type = string
-  default = ""
-}
+# variable "aws_iam_openid_connect_provider_extract_from_arn" {
+#   description = "data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn"
+#   type = string
+#   default = ""
+# }
 
 variable "eks_cluster_endpoint" {
   description = "The hostname (in form of URI) of Kubernetes master/data.terraform_remote_state.eks.outputs.cluster_endpoint"
