@@ -55,6 +55,31 @@ module "eks-ebs-csi" {
 }
 ```
 
+
+If you use Self-Manage Node Group EKS (windows node)
+
+```hcl
+data "aws_eks_cluster" "dev-mdcl-nimtechnology-engines" {
+  name = var.cluster_id
+}
+
+
+module "eks-ebs-csi" {
+  source  = "mrnim94/eks-ebs-csi/aws"
+  version = "1.0.11"
+
+  aws_region = var.aws_region
+  environment = var.environment
+  business_divsion = var.business_divsion
+
+ eks_cluster_certificate_authority_data = data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.certificate_authority[0].data
+ eks_cluster_endpoint = data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.endpoint
+ eks_cluster_id = var.cluster_id
+ aws_iam_openid_connect_provider_arn = "arn:aws:iam::${element(split(":", "${data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.arn}"), 4)}:oidc-provider/${element(split("//", "${data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.identity[0].oidc[0].issuer}"), 1)}"
+}
+```
+
+
 Datas are gotten form terraform state.
 
 ```hcl
