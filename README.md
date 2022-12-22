@@ -89,3 +89,7 @@ Changes to Outputs:
   + cluster_id                         = "devops-nimtechnology"
   + oidc_provider_arn                  = "arn:aws:iam::223200000194:oidc-provider/oidc.eks.us-west-2.amazonaws.com/id/086FB70912E248103C0INIM6A548C"
   ```
+
+I have a post to explain much knowledge about EBS and EKS.
+
+[![Image](https://nimtechnology.com/wp-content/uploads/2022/11/image-153.png "[AWS] Creat Persistent Volume on EKS via EBS. ")](https://nimtechnology.com/2022/11/20/aws-creat-persistent-volume-on-eks-via-ebs/)
