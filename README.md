@@ -15,7 +15,7 @@ data "terraform_remote_state" "eks" {
 
 module "eks-ebs-csi" {
   source  = "mrnim94/eks-ebs-csi/aws"
-  version = "1.0.11"
+  version = "2.0.1"
 
   aws_region = "us-east-1"
   environment = "dev"
@@ -23,7 +23,7 @@ module "eks-ebs-csi" {
 
  eks_cluster_certificate_authority_data = data.terraform_remote_state.eks.outputs.cluster_certificate_authority_data
  eks_cluster_endpoint = data.terraform_remote_state.eks.outputs.cluster_endpoint
- eks_cluster_id = data.terraform_remote_state.eks.outputs.cluster_id
+ eks_cluster_name = data.terraform_remote_state.eks.outputs.cluster_name
  aws_iam_openid_connect_provider_arn = data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_arn
 }
 ```
@@ -42,7 +42,7 @@ data "terraform_remote_state" "eks" {
 
 module "eks-ebs-csi" {
   source  = "mrnim94/eks-ebs-csi/aws"
-  version = "1.0.11"
+  version = "2.0.1"
 
   aws_region = var.aws_region
   environment = var.environment
@@ -50,7 +50,7 @@ module "eks-ebs-csi" {
 
  eks_cluster_certificate_authority_data = data.terraform_remote_state.eks.outputs.cluster_certificate_authority_data
  eks_cluster_endpoint = data.terraform_remote_state.eks.outputs.cluster_endpoint
- eks_cluster_id = data.terraform_remote_state.eks.outputs.cluster_id
+ eks_cluster_name = data.terraform_remote_state.eks.outputs.cluster_name
  aws_iam_openid_connect_provider_arn = data.terraform_remote_state.eks.outputs.oidc_provider_arn
 }
 ```
@@ -60,13 +60,13 @@ If you use Self-Manage Node Group EKS (windows node)
 
 ```hcl
 data "aws_eks_cluster" "dev-mdcl-nimtechnology-engines" {
-  name = var.cluster_id
+  name = var.cluster_name
 }
 
 
 module "eks-ebs-csi" {
   source  = "mrnim94/eks-ebs-csi/aws"
-  version = "1.0.11"
+  version = "2.0.1"
 
   aws_region = var.aws_region
   environment = var.environment
@@ -74,7 +74,7 @@ module "eks-ebs-csi" {
 
  eks_cluster_certificate_authority_data = data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.certificate_authority[0].data
  eks_cluster_endpoint = data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.endpoint
- eks_cluster_id = var.cluster_id
+ eks_cluster_name = var.cluster_name
  aws_iam_openid_connect_provider_arn = "arn:aws:iam::${element(split(":", "${data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.arn}"), 4)}:oidc-provider/${element(split("//", "${data.aws_eks_cluster.dev-mdcl-nimtechnology-engines.identity[0].oidc[0].issuer}"), 1)}"
 }
 ```

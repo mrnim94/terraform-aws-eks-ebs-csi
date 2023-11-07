@@ -36,8 +36,8 @@ variable "business_divsion" {
 #   default = ""
 # }
 
-variable "eks_cluster_id" {
-  description = "EKS cluster ID/data.terraform_remote_state.eks.outputs.cluster_id"
+variable "eks_cluster_name" {
+  description = "EKS cluster Name/data.terraform_remote_state.eks.outputs.cluster_name"
   type = string
   default = ""
 }
